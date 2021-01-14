@@ -3,4 +3,5 @@
 *.exe
 *.mod~
 *.obj
+*.sym
 tmp.lnk
