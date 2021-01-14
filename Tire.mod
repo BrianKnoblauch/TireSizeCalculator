@@ -1,15 +1,13 @@
 IMPLEMENTATION MODULE Tire;
 
-FROM RealMath IMPORT pi;
-
 PROCEDURE RollingDiameter (width, aspect, diameter : CARDINAL) : REAL;
 
 VAR
      height, overall : REAL;
 
 BEGIN
-     height := FLOAT(width) * (FLOAT(aspect) / 100.0);
-     overall := ((height * 2.0) + (FLOAT(diameter) * 25.4)) * pi;
+     height := FLOAT(width) * FLOAT(aspect);
+     overall := (height / 2540.0 * 2.0) + FLOAT(diameter);
      RETURN overall
 END RollingDiameter;
 

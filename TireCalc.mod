@@ -1,6 +1,6 @@
 MODULE TireCalc;
 
-FROM SRealIO  IMPORT WriteReal;
+FROM SRealIO  IMPORT WriteFixed;
 FROM STextIO  IMPORT SkipLine, WriteLn, WriteString;
 FROM SWholeIO IMPORT ReadCard;
 FROM Tire     IMPORT RollingDiameter;
@@ -29,17 +29,17 @@ BEGIN
      InputValue("Comparison Wheel Diameter (in): ", comparisondiameter);
      current := RollingDiameter(currentwidth, currentaspect, currentdiameter);
      comparison := RollingDiameter(comparisonwidth, comparisonaspect, comparisondiameter);
-     errorpercent := 1.0 - (comparison / current);
+     errorpercent := 1.0 - (current / comparison);
      indicatedmph := (60.0 + (60.0 * errorpercent));
      mpherror := - (60.0 - indicatedmph);
      WriteLn;
      WriteString("Speedometer error of ");
-     WriteReal(errorpercent, 10);
+     WriteFixed(errorpercent * 100.0, 2, 6);
      WriteString(" %");
      WriteLn;
      WriteString("Indicated ");
-     WriteReal(indicatedmph, 10);
+     WriteFixed(indicatedmph, 2, 6);
      WriteString(" MPH for a difference of ");
-     WriteReal(mpherror, 10);
+     WriteFixed(mpherror, 2, 6);
      WriteString(" MPH");
 END TireCalc.
