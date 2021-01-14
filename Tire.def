@@ -1,0 +1,5 @@
+DEFINITION MODULE Tire;
+
+PROCEDURE RollingDiameter (width, aspect, diameter : REAL) : REAL;
+
+END Tire.
