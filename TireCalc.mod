@@ -1,7 +1,7 @@
 MODULE TireCalc;
 
 FROM SRealIO  IMPORT WriteReal;
-FROM STextIO  IMPORT WriteLn, WriteString;
+FROM STextIO  IMPORT SkipLine, WriteLn, WriteString;
 FROM SWholeIO IMPORT ReadCard;
 FROM Tire     IMPORT RollingDiameter;
 
@@ -16,6 +16,7 @@ PROCEDURE InputValue (output : ARRAY OF CHAR; VAR input : CARDINAL);
 BEGIN
      WriteString(output);
      ReadCard(input);
+     SkipLine;
      WriteLn;
 END InputValue;
 
