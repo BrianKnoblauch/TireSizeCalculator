@@ -20,9 +20,9 @@ BEGIN
      InputValue("Comparison Wheel Diameter (in): ", comparisondiameter);
      current := RollingDiameter(currentwidth, currentaspect, currentdiameter);
      comparison := RollingDiameter(comparisonwidth, comparisonaspect, comparisondiameter);
-     errorpercent := 1 - (comparison / current);
-     indicatedmph := (60 + (60 * errorpercent));
-     mpherror := - (60 - indicatedmph);
+     errorpercent := 1.0 - (comparison / current);
+     indicatedmph := (60.0 + (60.0 * errorpercent));
+     mpherror := - (60.0 - indicatedmph);
      WriteLn;
      WriteString("Speedometer error of ");
      WriteReal(errorpercent, 10);
@@ -32,9 +32,8 @@ BEGIN
      WriteReal(indicatedmph, 10);
      WriteString(" MPH for a difference of ");
      WriteReal(mpherror, 10);
-     WriteString(" MPH);
+     WriteString(" MPH");
 END TireCalc.
-
 
 PROCEDURE InputValue (output : ARRAY OF CHAR, VAR input : CARDINAL);
 
