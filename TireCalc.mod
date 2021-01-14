@@ -11,6 +11,14 @@ VAR
      errorpercent, indicatedmph, mpherror                  : REAL;
      current, comparison                                   : REAL;
 
+PROCEDURE InputValue (output : ARRAY OF CHAR; VAR input : CARDINAL);
+
+BEGIN
+     WriteString(output);
+     ReadCard(input);
+     WriteLn;
+END InputValue;
+
 BEGIN
      InputValue("Current Tire Width (mm): ", currentwidth);
      InputValue("Current Tire Aspect Ratio (whole number): ", currentaspect);
@@ -34,12 +42,3 @@ BEGIN
      WriteReal(mpherror, 10);
      WriteString(" MPH");
 END TireCalc.
-
-PROCEDURE InputValue (output : ARRAY OF CHAR, VAR input : CARDINAL);
-
-BEGIN
-     WriteString(output);
-     ReadCard(input);
-     WriteLn;
-     RETURN
-END InputValue;
