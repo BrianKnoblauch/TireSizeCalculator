@@ -17,7 +17,6 @@ BEGIN
      WriteString(output);
      ReadCard(input);
      SkipLine;
-     WriteLn;
 END InputValue;
 
 BEGIN

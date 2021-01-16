@@ -6,8 +6,8 @@ VAR
      height, overall : REAL;
 
 BEGIN
-     height := FLOAT(width) * FLOAT(aspect);
-     overall := (height / 2540.0 * 2.0) + FLOAT(diameter);
+     height := FLOAT(width) * (FLOAT(aspect) / 100.0);
+     overall := (height * 2.0) + (FLOAT(diameter) * 25.4);
      RETURN overall
 END RollingDiameter;
 
